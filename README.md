@@ -11,6 +11,8 @@ composer require nimpla/gapi-support-for-laravel
 ## Example
 Here you can find an example of using GAPI in Laravel
 ```php
+use Nimpla\Gapi\Gapi;
+
 public function getAnalytics($gaId) {
     $serviceAccount = 'test@test.iam.gserviceaccount.com';
     $key = Storage::disk('local')->get('serviceaccount_key.p12');
