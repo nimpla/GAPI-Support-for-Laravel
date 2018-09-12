@@ -609,7 +609,7 @@ class gapiOAuth2 {
    * @param String $delegate_email
    * @return String Authentication token
    */
-  public function fetchToken($client_email, $key_file, $delegate_email = null) {
+  public function fetchToken($client_email, $key_data, $delegate_email = null) {
     $header = array(
       "alg" => self::header_alg,
       "typ" => self::header_typ,
@@ -629,7 +629,7 @@ class gapiOAuth2 {
 
     $data = $this->base64URLEncode(json_encode($header)) . '.' . $this->base64URLEncode(json_encode($claimset));
 
-    if (!file_exists($key_file)) {
+    /*if (!file_exists($key_file)) {
       if ( !file_exists(__DIR__ . DIRECTORY_SEPARATOR . $key_file) ) {
         throw new Exception('GAPI: Failed load key file "' . $key_file . '". File could not be found.');
       } else {
@@ -637,7 +637,7 @@ class gapiOAuth2 {
       }
     }
 
-    $key_data = file_get_contents($key_file);
+    $key_data = file_get_contents($key_file);*/
     
     if (empty($key_data)) {
       throw new Exception('GAPI: Failed load key file "' . $key_file . '". File could not be opened or is empty.');
